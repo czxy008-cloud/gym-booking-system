@@ -55,6 +55,7 @@ const bookingSchema = new mongoose.Schema({
   timestamps: true,
 });
 
-bookingSchema.index({ member: 1, courseSlot: 1 }, { unique: true });
+bookingSchema.index({ member: 1, createdAt: -1 });
+bookingSchema.index({ courseSlot: 1, status: 1 });
 
 module.exports = mongoose.model('Booking', bookingSchema);

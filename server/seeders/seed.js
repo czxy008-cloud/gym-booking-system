@@ -114,8 +114,19 @@ const seedData = async () => {
         membershipType: '年卡',
         status: 'active',
       },
+      {
+        name: '管理员',
+        phone: '13800000000',
+        password: hashedPassword,
+        remainingSessions: 999,
+        totalSessions: 999,
+        membershipType: '年卡',
+        role: 'admin',
+        status: 'active',
+      },
     ]);
     console.log(`已创建 ${members.length} 位会员，默认密码：123456`);
+    console.log('管理员账号：13800000000 / 123456');
 
     console.log('开始创建课程排期...');
     const courseSlots = [];

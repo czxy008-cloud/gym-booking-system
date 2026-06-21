@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import StarRating from '../components/StarRating.jsx';
-import { coachAPI, reviewAPI, courseAPI } from '../services/api';
+import { coachAPI, reviewAPI, courseAPI, bookingAPI } from '../services/api';
 import { formatDate } from '../utils/dateUtils';
 import { useAuth } from '../context/AuthContext.jsx';
 import './CoachDetailPage.css';
@@ -13,6 +13,7 @@ const CoachDetailPage = () => {
   const [reviews, setReviews] = useState([]);
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [bookingLoading, setBookingLoading] = useState(null);
   const [reviewPage, setReviewPage] = useState(1);
   const [ratingDistribution, setRatingDistribution] = useState({ 5: 0, 4: 0, 3: 0, 2: 0, 1: 0 });
   const { user } = useAuth();
@@ -62,12 +63,21 @@ const CoachDetailPage = () => {
     }
   };
 
-  const handleBookCourse = (course) => {
+  const handleBookCourse = async (course) => {
     if (!user) {
       navigate('/login');
       return;
     }
-    navigate('/');
+    try {
+      setBookingLoading(course._id);
+      const response = await bookingAPI.create(course._id);
+      alert(`预约成功！剩余课时：${response.data.remainingSessions}`);
+      fetchCourses();
+    } catch (error) {
+      alert(error.response?.data?.message || '预约失败');
+    } finally {
+      setBookingLoading(null);
+    }
   };
 
   if (loading) {
@@ -156,9 +166,13 @@ const CoachDetailPage = () => {
                 <button
                   className="btn btn-primary btn-sm"
                   onClick={() => handleBookCourse(course)}
-                  disabled={course.status !== 'available'}
+                  disabled={course.status !== 'available' || bookingLoading === course._id}
                 >
-                  {course.status === 'available' ? '预约' : '已满'}
+                  {bookingLoading === course._id
+                    ? '预约中...'
+                    : course.status === 'available'
+                    ? '预约'
+                    : '已满'}
                 </button>
               </div>
             ))}

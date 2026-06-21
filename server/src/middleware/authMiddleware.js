@@ -20,4 +20,12 @@ const protect = async (req, res, next) => {
   }
 };
 
-module.exports = { protect };
+const admin = (req, res, next) => {
+  if (req.member && req.member.role === 'admin') {
+    next();
+  } else {
+    res.status(403).json({ message: '需要管理员权限' });
+  }
+};
+
+module.exports = { protect, admin };

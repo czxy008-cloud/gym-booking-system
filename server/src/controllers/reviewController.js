@@ -217,11 +217,12 @@ const rejectReview = async (req, res) => {
 
     review.status = 'rejected';
     review.isPublic = false;
+    review.rejectReason = reason || '';
     await review.save();
 
     res.json({
       message: '评价已驳回',
-      reason: reason || '',
+      review,
     });
   } catch (error) {
     res.status(500).json({ message: '驳回失败', error: error.message });
@@ -230,17 +231,42 @@ const rejectReview = async (req, res) => {
 
 const getPendingReviews = async (req, res) => {
   try {
-    const { page = 1, limit = 10 } = req.query;
+    const { page = 1, limit = 20 } = req.query;
 
     const reviews = await Review.find({ status: 'pending' })
       .populate('member', 'name avatar')
       .populate('coach', 'name')
-      .populate('booking')
+      .populate('booking', 'courseType date startTime')
       .sort({ createdAt: 1 })
       .skip((page - 1) * limit)
       .limit(Number(limit));
 
     const total = await Review.countDocuments({ status: 'pending' });
+
+    res.json(reviews);
+  } catch (error) {
+    res.status(500).json({ message: '获取待审核评价失败', error: error.message });
+  }
+};
+
+const getAllReviews = async (req, res) => {
+  try {
+    const { page = 1, limit = 20, status } = req.query;
+    const query = {};
+
+    if (status) {
+      query.status = status;
+    }
+
+    const reviews = await Review.find(query)
+      .populate('member', 'name avatar')
+      .populate('coach', 'name')
+      .populate('booking', 'courseType date startTime')
+      .sort({ createdAt: -1 })
+      .skip((page - 1) * limit)
+      .limit(Number(limit));
+
+    const total = await Review.countDocuments(query);
 
     res.json({
       reviews,
@@ -252,7 +278,7 @@ const getPendingReviews = async (req, res) => {
       },
     });
   } catch (error) {
-    res.status(500).json({ message: '获取待审核评价失败', error: error.message });
+    res.status(500).json({ message: '获取评价列表失败', error: error.message });
   }
 };
 
@@ -288,4 +314,5 @@ module.exports = {
   approveReview,
   rejectReview,
   getPendingReviews,
+  getAllReviews,
 };

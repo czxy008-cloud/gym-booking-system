@@ -64,6 +64,7 @@ const loginMember = async (req, res) => {
       phone: member.phone,
       remainingSessions: member.remainingSessions,
       membershipType: member.membershipType,
+      role: member.role,
       token: generateToken(member._id),
     });
   } catch (error) {

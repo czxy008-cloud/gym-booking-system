@@ -8,12 +8,13 @@ const {
   deleteCoach,
   getCoachSpecialties,
 } = require('../controllers/coachController');
+const { protect, admin } = require('../middleware/authMiddleware');
 
 router.get('/', getAllCoaches);
 router.get('/specialties', getCoachSpecialties);
 router.get('/:id', getCoachById);
-router.post('/', createCoach);
-router.put('/:id', updateCoach);
-router.delete('/:id', deleteCoach);
+router.post('/', protect, admin, createCoach);
+router.put('/:id', protect, admin, updateCoach);
+router.delete('/:id', protect, admin, deleteCoach);
 
 module.exports = router;

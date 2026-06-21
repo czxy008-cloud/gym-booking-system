@@ -9,6 +9,8 @@ import CoachDetailPage from './pages/CoachDetailPage.jsx';
 import BookingsPage from './pages/BookingsPage.jsx';
 import ReviewsPage from './pages/ReviewsPage.jsx';
 import ProfilePage from './pages/ProfilePage.jsx';
+import AdminCourseManagementPage from './pages/AdminCourseManagementPage.jsx';
+import AdminReviewModerationPage from './pages/AdminReviewModerationPage.jsx';
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
           <Route path="/reviews" element={<ReviewsPage />} />
           <Route path="/reviews/new" element={<ReviewsPage />} />
           <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/admin/courses" element={<AdminCourseManagementPage />} />
+          <Route path="/admin/reviews" element={<AdminReviewModerationPage />} />
         </Routes>
       </main>
     </div>

@@ -33,6 +33,11 @@ const memberSchema = new mongoose.Schema({
     enum: ['月卡', '季卡', '年卡', '次卡'],
     default: '次卡',
   },
+  role: {
+    type: String,
+    enum: ['member', 'admin'],
+    default: 'member',
+  },
   status: {
     type: String,
     enum: ['active', 'inactive', 'frozen'],

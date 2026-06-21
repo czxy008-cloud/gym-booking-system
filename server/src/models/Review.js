@@ -44,6 +44,10 @@ const reviewSchema = new mongoose.Schema({
   replyTime: {
     type: Date,
   },
+  rejectReason: {
+    type: String,
+    default: '',
+  },
   tags: [{
     type: String,
   }],

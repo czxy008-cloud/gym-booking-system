@@ -35,6 +35,21 @@ const Navbar = () => {
               <Link to="/reviews" className="nav-link">
                 我的评价
               </Link>
+              {user.role === 'admin' && (
+                <div className="nav-dropdown">
+                  <span className="nav-link dropdown-trigger">
+                    管理后台 ▾
+                  </span>
+                  <div className="dropdown-menu">
+                    <Link to="/admin/courses" className="dropdown-item">
+                      课程排期管理
+                    </Link>
+                    <Link to="/admin/reviews" className="dropdown-item">
+                      评价审核
+                    </Link>
+                  </div>
+                </div>
+              )}
             </>
           )}
         </div>
