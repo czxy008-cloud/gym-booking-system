@@ -1,0 +1,385 @@
+.coach-detail-page {
+  padding: 24px 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.back-btn {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.back-btn:hover {
+  color: var(--primary-color);
+}
+
+.coach-profile-card {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.coach-profile-header {
+  display: flex;
+  gap: 24px;
+  padding: 32px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  align-items: center;
+}
+
+.coach-avatar-xl {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 600;
+  flex-shrink: 0;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.coach-profile-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.coach-profile-info .coach-name {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.coach-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.coach-rating-row .rating-score {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.coach-rating-row .review-count {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.coach-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.coach-specialties .specialty-tag {
+  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 12px;
+  border-radius: 9999px;
+}
+
+.coach-meta {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.coach-bio-section {
+  padding: 24px 32px;
+  border-top: 1px solid var(--border-color);
+}
+
+.coach-bio-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.coach-bio-section p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.section-card {
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.section-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.view-all-btn {
+  font-size: 13px;
+  color: var(--primary-color);
+}
+
+.view-all-btn:hover {
+  text-decoration: underline;
+}
+
+.review-total {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.course-list-simple {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.course-item-simple {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+}
+
+.course-date-time {
+  min-width: 100px;
+}
+
+.course-date {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.course-time {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.course-item-simple .course-type-tag {
+  padding: 4px 10px;
+  background: var(--primary-color);
+  color: white;
+  font-size: 12px;
+  border-radius: 9999px;
+}
+
+.course-item-simple .course-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--danger-color);
+  margin-left: auto;
+}
+
+.rating-overview {
+  display: flex;
+  gap: 32px;
+  padding: 20px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+}
+
+.rating-score-large {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 100px;
+}
+
+.rating-score-large .score {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.rating-bars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rating-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.star-label {
+  font-size: 12px;
+  color: var(--text-secondary);
+  min-width: 30px;
+}
+
+.rating-bar-bg {
+  flex: 1;
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.rating-bar-fill {
+  height: 100%;
+  background: #f59e0b;
+  border-radius: 9999px;
+  transition: width 0.3s;
+}
+
+.star-count {
+  font-size: 12px;
+  color: var(--text-muted);
+  min-width: 30px;
+  text-align: right;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-item {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.review-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.reviewer-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.reviewer-detail {
+  flex: 1;
+  min-width: 0;
+}
+
+.reviewer-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.review-time {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.review-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding-left: 46px;
+}
+
+.empty-state.small {
+  padding: 30px 20px;
+}
+
+.empty-state.small p {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.loading {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+}
+
+.empty-state p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .coach-detail-page {
+    padding: 16px 12px;
+  }
+
+  .coach-profile-header {
+    flex-direction: column;
+    text-align: center;
+    padding: 24px;
+  }
+
+  .coach-specialties {
+    justify-content: center;
+  }
+
+  .rating-overview {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .course-item-simple {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .course-item-simple .course-price {
+    margin-left: 0;
+  }
+}
